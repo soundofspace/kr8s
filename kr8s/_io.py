@@ -97,7 +97,10 @@ def iter_over_async(agen: AsyncGenerator) -> Generator:
         yield obj
 
 
-def sync(source: object) -> object:
+O = TypeVar('O', bound=object)
+
+
+def sync(source: O) -> O:
     """Convert all public async methods/properties of an object to universal methods.
 
     See :func:`run_sync` for more info
